@@ -1,0 +1,10 @@
+## Interface: 100002
+## Title: Pet Battle Performance
+## Notes: Prints a pet battle performance after each pet battle.
+## Version: v1.0
+## Author: Ashby-Perenolde (EU)
+##
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+PetBattlePerformance.lua
