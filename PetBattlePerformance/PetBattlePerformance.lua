@@ -14,24 +14,36 @@ function frame:OnEvent(event, ...)
 		if (arg1 == AddonName) then
 			DEFAULT_CHAT_FRAME:AddMessage("[" .. AddonTitle .. "] |cFF00FF00" .. AddonVersion .. "|r loaded.", 0.7, 0.7, 1.0);
 
-			frame:RegisterEvent("PET_BATTLE_OPENING_DONE");
+			frame:RegisterEvent("PET_BATTLE_OPENING_START");
 		end
-	elseif (event == "PET_BATTLE_OPENING_DONE") then
+	elseif (event == "PET_BATTLE_OPENING_START") then
+		frame.startTime = GetTime();
+		frame.userStart = nil;
+		frame.userTotal = 0;
+
+		frame:RegisterEvent("PET_BATTLE_PET_ROUND_RESULTS");
 		frame:RegisterEvent("PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE");
 		frame:RegisterEvent("PET_BATTLE_FINAL_ROUND");
 		frame:RegisterEvent("PET_BATTLE_CLOSE");
-		frame.startTime = GetTime();
+	elseif (event == "PET_BATTLE_PET_ROUND_RESULTS") then
+		if (frame.userStart) then
+			frame.userTotal = frame.userTotal + GetTime() - frame.userStart;
+			frame.userStart = nil;
+		end
 	elseif (event == "PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE") then
+		frame.userStart = GetTime();
 		frame.round = select(1, ...);
 	elseif (event == "PET_BATTLE_FINAL_ROUND") then
-		frame.endTime = GetTime();
 		frame.winner = select(1, ...);
 	elseif (event == "PET_BATTLE_CLOSE") then
+		frame.endTime = GetTime();
+
+		frame:UnregisterEvent("PET_BATTLE_PET_ROUND_RESULTS");
 		frame:UnregisterEvent("PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE");
 		frame:UnregisterEvent("PET_BATTLE_FINAL_ROUND");
 		frame:UnregisterEvent("PET_BATTLE_CLOSE");
 
-		local duration = ceil(frame.endTime - frame.startTime);
+		local duration = ceil(frame.endTime - frame.startTime - frame.userTotal);
 		local minutes, seconds = floor(duration / 60), duration % 60;
 
 		local d = YELLOW_FONT_COLOR_CODE .. (minutes > 0 and format("%dm %ds", minutes, seconds) or format("%ds", seconds)) .. "|r";
@@ -39,7 +51,8 @@ function frame:OnEvent(event, ...)
 		local o = YELLOW_FONT_COLOR_CODE .. (frame.winner == 1 and "Win" or "Loss") .. "|r";
 
 		DEFAULT_CHAT_FRAME:AddMessage("[" .. AddonTitle .. "] This battle lasted " .. d ..
-			" over " .. r .. " rounds, and resulted in a " .. o .. ".", 0.7, 0.7, 1.0);
+			" (+" .. ceil(frame.userTotal) .. "s input) over " .. r ..
+			" rounds, and resulted in a " .. o .. ".", 0.7, 0.7, 1.0);
 	else
 		print("[OnEvent] " .. event .. " NYI");
 	end
