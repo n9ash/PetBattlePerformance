@@ -1,4 +1,4 @@
-## Interface: 100002
+## Interface: 100005
 ## Title: Pet Battle Performance
 ## Notes: Prints a pet battle performance after each pet battle.
 ## Version: v1.1
