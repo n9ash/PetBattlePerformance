@@ -1,7 +1,7 @@
-## Interface: 100005
+## Interface: 110002
 ## Title: Pet Battle Performance
 ## Notes: Prints a pet battle performance after each pet battle.
-## Version: v1.1
+## Version: v1.2
 ## Author: Ashby-Perenolde (EU)
 ##
 ## DefaultState: Enabled
