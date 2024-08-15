@@ -1,6 +1,6 @@
 local AddonName, PetBattlePerformance = ...
-local AddonTitle = GetAddOnMetadata(AddonName, "Title") or AddonName;
-local AddonVersion = GetAddOnMetadata(AddonName, "Version") or "?";
+local AddonTitle = C_AddOns.GetAddOnMetadata(AddonName, "Title") or AddonName;
+local AddonVersion = C_AddOns.GetAddOnMetadata(AddonName, "Version") or "?";
 
 --------------------------------------------------------------------------------
 -- Frame Scripts
