@@ -1,7 +1,18 @@
-## Interface: 110107
+## Interface: 120001, 120000
 ## Title: Pet Battle Performance
 ## Notes: Prints a pet battle performance after each pet battle.
-## Version: v1.5
+## Category: Pet Battles
+## Category-deDE: Haustierkämpfe
+## Category-esES: Duelos de mascotas
+## Category-esMX: Duelos de mascotas
+## Category-frFR: Combats de mascottes
+## Category-itIT: Battaglie fra pet
+## Category-koKR: 애완동물 대전
+## Category-ptBR: Batalhas de mascotes
+## Category-ruRU: Битвы питомцев
+## Category-zhCN: 宠物对战
+## Category-zhTW: 寵物對戰
+## Version: v1.6
 ## Author: Ashby-Perenolde (EU)
 ##
 ## DefaultState: Enabled
