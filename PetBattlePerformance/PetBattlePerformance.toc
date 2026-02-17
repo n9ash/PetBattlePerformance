@@ -1,5 +1,7 @@
-## Interface: 120001, 120000
+## Interface: 120007, 120005, 120001, 120000
+## Version: v1.7
 ## Title: Pet Battle Performance
+## Author: Ashby-Perenolde (EU)
 ## Notes: Prints a pet battle performance after each pet battle.
 ## Category: Pet Battles
 ## Category-deDE: Haustierkämpfe
@@ -12,8 +14,6 @@
 ## Category-ruRU: Битвы питомцев
 ## Category-zhCN: 宠物对战
 ## Category-zhTW: 寵物對戰
-## Version: v1.6
-## Author: Ashby-Perenolde (EU)
 ##
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
