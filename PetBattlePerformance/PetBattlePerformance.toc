@@ -1,5 +1,5 @@
-## Interface: 120007, 120005, 120001, 120000
-## Version: v1.7
+## Interface: 120100, 120105, 120107
+## Version: v1.8
 ## Title: Pet Battle Performance
 ## Author: Ashby-Perenolde (EU)
 ## Notes: Prints a pet battle performance after each pet battle.
